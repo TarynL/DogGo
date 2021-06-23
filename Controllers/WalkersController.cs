@@ -50,6 +50,8 @@ namespace DogGo.Controllers
             Walker walker = _walkerRepo.GetWalkerById(id);
             List<Walks> walks = _walksRepo.GetAllWalksByWalkerId(walker.Id);
 
+            ViewBag.Total = walks.Sum(x => x.Duration);
+
             WalkerProfileViewModel wpvm = new WalkerProfileViewModel()
             {
                 Walker = walker,
