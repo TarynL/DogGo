@@ -1,0 +1,55 @@
+﻿@model DogGo.Models.ViewModels.WalksFormViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Walks</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Walk.Date" class="control-label"></label>
+                <input asp-for="Walk.Date" class="form-control" />
+                <span asp-validation-for="Walk.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Walk.Duration" class="control-label"></label>
+                <input asp-for="Walk.Duration" class="form-control" />
+                <span asp-validation-for="Walk.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Walk.Walker.Name" class="control-label">Walker Name</label>
+                <input asp-for="Walk.Walker.Name" class="form-control" />
+                <span asp-validation-for="Walk.Walker.Name" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Walk.DogId" class="control-label"></label>
+                <asp:ListBox SelectionMode="Multiple" asp-for="Walk.Dog.Name" class="form-control ">
+                    <asp.ListItem value=">Select Dogs</asp.ListItem>
+                    @foreach (Dog dogs in Model.Dogs)
+                    {
+                        <asp.ListItem value="@dogs.Id" Text = @dogs.Name/>
+                    }
+                </asp:ListBox>
+                <span asp-validation-for="Walk.Dog.Name" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
