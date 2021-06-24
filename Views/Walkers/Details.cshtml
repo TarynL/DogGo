@@ -38,7 +38,7 @@
                     @foreach (Walks walk in Model.Walks)
                     {
                         <tr>
-                            <td>@Html.DisplayFor(model => walk.Date)</td>
+                            <td>@walk.DateString()</td>
 
                             <td>@Html.DisplayFor(model => walk.Owner.Name)</td>
 
@@ -52,16 +52,20 @@
 
         <section class="col-lg-4 col-md-8 container mt-5">
             <h1>
-                Total Walk Time:@ViewBag.Total mins
+                @*Total Walk Time:@ViewBag.Total mins*@
+                Total Walk Time:  @foreach (Walks walk in Model.Walks)
+                {
+                    @walk.TotalTime()
+                }
 
 
-                @*@foreach (Walks walk in Model.Walks)
+                    @*@foreach (Walks walk in Model.Walks)
                 {
             @walk.Sum(x => x.walk.duration);
 
                         }*@
-                
-            </h1>
+
+                </h1>
 
 
         </section>

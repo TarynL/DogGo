@@ -41,6 +41,7 @@ namespace DogGo.Controllers
         // GET: WalksController/Create
         public ActionResult Create()
         {
+
             List<Dog> dogs = _dogRepo.GetAllDogs();
 
             WalksFormViewModel vm = new WalksFormViewModel()
@@ -55,17 +56,22 @@ namespace DogGo.Controllers
         // POST: WalksController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Walks walk)
+        public ActionResult Create(WalksFormViewModel walks)
         {
             try
             {
-                _walksRepo.AddWalk(walk);
+                foreach(var dog in walks.Selections)
+                {
+                    walks.Walk.DogId = dog;
+                    _walksRepo.AddWalk(walks.Walk);
+
+                }
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                return View(walk);
+                return View(walks);
             }
         }
 

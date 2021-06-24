@@ -43,7 +43,7 @@ namespace DogGo.Repositories
                         Walks walk = new Walks
                         {
                             Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                            Date = reader.GetDateTime(reader.GetOrdinal("Date")).ToShortDateString(),
+                            Date = reader.GetDateTime(reader.GetOrdinal("Date")),
                             Duration = reader.GetInt32(reader.GetOrdinal("Duration")) / 60,
                             Walker = new Walker()
                             {
@@ -86,7 +86,7 @@ namespace DogGo.Repositories
                         Walks walk = new Walks()
                         {
                             Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                            Date = reader.GetDateTime(reader.GetOrdinal("Date")).ToShortDateString(),
+                            Date = reader.GetDateTime(reader.GetOrdinal("Date")),
                             Duration = reader.GetInt32(reader.GetOrdinal("Duration"))/60,
                             WalkerId = reader.GetInt32(reader.GetOrdinal("WalkerId")),
                             DogId = reader.GetInt32(reader.GetOrdinal("DogId")),

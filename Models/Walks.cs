@@ -21,6 +21,15 @@ namespace DogGo.Models
         {
             return Date.ToShortDateString();
         }
+
+        public int TotalTime()
+        {
+            int hrs = Duration / 60;
+            int mins = Duration % 3600;
+            Console.WriteLine($"{hrs} hrs {mins} mins");
+        }
+
+
     
     }
 }
