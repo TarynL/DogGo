@@ -20,10 +20,10 @@
                 @Html.DisplayNameFor(model => model.Duration)
             </th>
             <th>
-                WalkerName
+                Walker Name
             </th>
             <th>
-                DogName
+                Dog Name
             </th>
             <th></th>
         </tr>
@@ -33,7 +33,7 @@
         <tr>
             
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(modelItem => item.DateString())
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Duration) mins
