@@ -8,7 +8,7 @@ namespace DogGo.Models
     public class Walks
     {
         public int Id { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public int Duration { get; set; }
         public int WalkerId { get; set; }
         public int DogId { get; set; }
@@ -16,6 +16,11 @@ namespace DogGo.Models
         public Dog Dog { get; set; }
 
         public Owner Owner { get; set; }
+
+        public string DateString()
+        {
+            return Date.ToShortDateString();
+        }
     
     }
 }
