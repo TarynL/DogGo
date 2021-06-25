@@ -65,59 +65,7 @@ namespace DogGo.Repositories
             }
         }
 
-        //public Owner GetOwnerById (int id)
-        //{
-        //    using (SqlConnection conn = Connection)
-        //    {
-        //        conn.Open();
-        //        using (SqlCommand cmd = conn.CreateCommand())
-        //        {
-        //            cmd.CommandText = @"
-        //                   SELECT o.Id, o.Email, o.Name, o.Address, o.Phone, o.NeighborhoodId, n.id, n.Name as Neighborhood, d.Name as Dog
-        //                    FROM Dog d
-        //                    LEFT JOIN Owner o on d.OwnerId = o.Id
-        //                    LEFT JOIN Neighborhood n on o.NeighborhoodId = n.Id
-        //                    WHERE o.Id = @id";
-
-        //            cmd.Parameters.AddWithValue("@id", id);
-        //            SqlDataReader reader = cmd.ExecuteReader();
-
-        //            if (reader.Read())
-        //            {
-        //                Owner owner = new Owner
-        //                {
-        //                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
-        //                    Name = reader.GetString(reader.GetOrdinal("Name")),
-        //                    Email = reader.GetString(reader.GetOrdinal("Email")),
-        //                    Address = reader.GetString(reader.GetOrdinal("Address")),
-        //                    Phone = reader.GetString(reader.GetOrdinal("Phone")),
-        //                    Neighborhood = new Neighborhood()
-        //                    {
-        //                        Name = reader.GetString(reader.GetOrdinal("Neighborhood"))
-        //                    },
-        //                    Dog = new Dog()
-        //                    {
-        //                        Name = reader.GetString(reader.GetOrdinal("Dog"))
-        //            }
-        //                //    List < Dog > dogs = new List<Dog>()
-        //                //        {
-        //                //            foreach (Dog d in dogs)
-
-        //                //    Name = reader.GetString(reader.GetOrdinal("Dog"));
-        //                //}
-        //            };
-
-        //                reader.Close();
-        //                return owner;
-        //            }
-        //            else
-        //            {
-        //                reader.Close();
-        //                return null;
-        //            }
-        //        }
-        //    }
-        //}
+       
         public Owner GetOwnerById(int id)
         {
             using (SqlConnection conn = Connection)

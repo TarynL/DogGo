@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace DogGo.Controllers
@@ -14,21 +15,40 @@ namespace DogGo.Controllers
     {
         private readonly IWalkerRepository _walkerRepo;
         private readonly IWalksRepository _walksRepo;
+        private readonly IOwnerRepository _ownerRepo;
 
         // ASP.NET will give us an instance of our Walker Repository. This is called "Dependency Injection"
-        public WalkersController(IWalkerRepository walkerRepository, IWalksRepository walksRepository)
+        public WalkersController(IWalkerRepository walkerRepository, IWalksRepository walksRepository, IOwnerRepository ownerRepository)
         {
             _walkerRepo = walkerRepository;
             _walksRepo = walksRepository;
+            _ownerRepo = ownerRepository;
         }
 
         // GET: WalkersController
         // GET: Walkers
+        //public ActionResult Index()
+        //{
+            
+        //    List<Walker> walkers = _walkerRepo.GetAllWalkers();
+
+        //    return View(walkers);
+        //}
         public ActionResult Index()
         {
             List<Walker> walkers = _walkerRepo.GetAllWalkers();
 
-            return View(walkers);
+            //int ownerId = GetCurrentUserId();
+            //List<Owner> owners = _ownerRepo.GetOwnerById(ownerId);
+            //if ()
+            //{
+
+            //}
+            //else
+            //{
+                return View(walkers);
+            
+            
         }
 
 
@@ -134,6 +154,11 @@ namespace DogGo.Controllers
             {
                 return View(walker);
             }
+        }
+        private int GetCurrentUserId()
+        {
+            string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return int.Parse(id);
         }
     }
 }
