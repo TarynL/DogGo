@@ -51,23 +51,15 @@
        
 
         <section class="col-lg-4 col-md-8 container mt-5">
+            
+                @{int hrs = ViewBag.Total / 60;}
+                @{ int mins = ViewBag.Total % 60;}
             <h1>
-                @*Total Walk Time:@ViewBag.Total mins*@
-                Total Walk Time: 
-                @*@foreach (Walks walk in Model.Walks)
-                {
-                    @walk.TotalTime()
-                }*@
-
-
-                    @*@foreach (Walks walk in Model.Walks)
-                {
-            @walk.Sum(x => x.walk.duration);
-
-                        }*@
-
-                </h1>
-
+                Total Walk Time:
+            </h1>
+            <h2>
+                @hrs hrs @mins mins  
+            </h2>
 
         </section>
     </div>

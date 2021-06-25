@@ -37,16 +37,18 @@ namespace DogGo.Controllers
         public ActionResult Index()
         {
             List<Walker> walkers = _walkerRepo.GetAllWalkers();
-
-            //int ownerId = GetCurrentUserId();
+            //int neighborhoodId = GetCurrentUserId();
+            
+            ////int ownerId = GetCurrentUserId();
+            //List<Walker> neighborhoodWalkers = _walkerRepo.GetWalkersInNeighborhood(neighborhoodId);
             //List<Owner> owners = _ownerRepo.GetOwnerById(ownerId);
-            //if ()
-            //{
+            ////if ()
+            ////{
 
             //}
             //else
             //{
-                return View(walkers);
+            return View(walkers);
             
             
         }
@@ -70,7 +72,7 @@ namespace DogGo.Controllers
             Walker walker = _walkerRepo.GetWalkerById(id);
             List<Walks> walks = _walksRepo.GetAllWalksByWalkerId(walker.Id);
 
-            //ViewBag.Total = walks.Sum(x => x.Duration);
+            ViewBag.Total = walks.Sum(x => x.Duration);
 
             WalkerProfileViewModel wpvm = new WalkerProfileViewModel()
             {
