@@ -29,9 +29,8 @@
                 <span asp-validation-for="Walk.Walker.Name" class="text-danger"></span>
             </div>
             <div class=" form-group">
-                <label asp-for="Walk.DogId" clasgIds="control-label">Walker Name</label>
+                <label asp-for="Walk.DogId" clasgIds="control-label">Select Dogs</label>
                 <select asp-for="Selections" class="form-control">
-                    <option value="">Select Dogs</option>
                     @foreach (Dog dogs in Model.Dogs)
                     {
                         <option value="@dogs.Id">@dogs.Name</option>

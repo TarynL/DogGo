@@ -53,10 +53,11 @@
         <section class="col-lg-4 col-md-8 container mt-5">
             <h1>
                 @*Total Walk Time:@ViewBag.Total mins*@
-                Total Walk Time:  @foreach (Walks walk in Model.Walks)
+                Total Walk Time: 
+                @*@foreach (Walks walk in Model.Walks)
                 {
                     @walk.TotalTime()
-                }
+                }*@
 
 
                     @*@foreach (Walks walk in Model.Walks)
