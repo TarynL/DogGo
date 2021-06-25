@@ -38,17 +38,7 @@
                 </select>
                 <span asp-validation-for="Walk.Dog.Name" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
-                <label asp-for="Walk.DogId" class="control-label">Dog Name</label>
-                <asp:ListBox SelectionMode="Multiple" asp-for="Walk.Dog.Name" class="form-control ">
-                    <asp.ListItem value=">Select Dogs</asp.ListItem>
-                    @foreach (Dog dogs in Model.Dogs)
-                    {
-                        <asp.ListItem value="@dogs.Id" Text = @dogs.Name/>
-                    }
-                </asp:ListBox>
-                <span asp-validation-for="Walk.Dog.Name" class="text-danger"></span>
-            </div>*@
+          
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

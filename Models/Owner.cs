@@ -1,25 +1,38 @@
 ﻿
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace DogGo.Models
 {
     public class Owner
     {
         public int Id { get; set; }
+
+        [EmailAddress]
+        [Required]
+        [DisplayName("Email Address")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Hmmm... You should really add a Name...")]
+        [MaxLength(35)]
+        [DisplayName("Name")]
         public string Name { get; set; }
-        public string Address { get; set; }
+
+        [Phone]
+        [DisplayName("Phone Number")]
         public string Phone { get; set; }
+
+        [Required]
+        [StringLength(55, MinimumLength = 5)]
+        public string Address { get; set; }
+
+        [Required]
+        [DisplayName("NeighborhoodId")]
         public int NeighborhoodId { get; set; }
 
         public Neighborhood Neighborhood { get; set; }
-        //public List<Dog> Dogs { get; internal set; }
-        public Dog Dog {  get; set; }
-
-        //public static implicit operator List<object>(Dog v)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
+        public Dog Dog { get; set; }
     }
+
 }
